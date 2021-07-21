@@ -37,12 +37,15 @@ function converter(n, i){
 //Перенести функционал подсчета корзины на объектно-ориентированную базу.
 var basket = {
     products: [],
-    summare: function () {
+    summare: function() {
         var sum = 0
         for(var ob of this.products){
             sum = sum + ob.price * ob.count
         }
         return sum
+    },
+    addProduct: function(product) {
+        this.products.push(product)
     }
 }
 
