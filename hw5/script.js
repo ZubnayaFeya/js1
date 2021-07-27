@@ -57,19 +57,19 @@ let chees = function() {
                 }
                 if (n === 1) {
                     if (a === 1 || a === 8){
+                        let wr = document.createElement("img")
+                        wr.setAttribute("src", "img/wR.png")
+                        wr.setAttribute("width", "40px");
+                        wr.setAttribute("height", "40px");
+                        wr.style.backgroundColor = "gray"
+                        div_2.appendChild(wr)
+                    } else if (a === 2 || a === 7){
                         let wn = document.createElement("img")
                         wn.setAttribute("src", "img/wN.png")
                         wn.setAttribute("width", "40px");
                         wn.setAttribute("height", "40px");
                         wn.style.backgroundColor = "gray"
                         div_2.appendChild(wn)
-                    } else if (a === 2 || a === 7){
-                        let wb = document.createElement("img")
-                        wb.setAttribute("src", "img/wB.png")
-                        wb.setAttribute("width", "40px");
-                        wb.setAttribute("height", "40px");
-                        wb.style.backgroundColor = "gray"
-                        div_2.appendChild(wb)
                     } else if (a === 3 || a === 6){
                         let wb = document.createElement("img")
                         wb.setAttribute("src", "img/wB.png")
