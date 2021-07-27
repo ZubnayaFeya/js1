@@ -2,47 +2,73 @@
 //т.е. чередовать черные и белые ячейки. Строки должны нумероваться числами от 1 до 8, столбцы – латинскими буквами A, B, C, D, E, F, G, H.
 let chees = function() {
     let div = document.createElement("div")
-    let table = document.createElement("table")
 
     let numbers = ['', 1, 2, 3, 4, 5, 6, 7, 8, '']
-    let alphas = ['', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', '']
+    let alphas = ['', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', '']
 
-    for (a of alphas){
+    for (n of numbers.reverse()){
 
-        let td = document.createElement("td")
+        let div_1 = document.createElement("div")
+        div_1.style.display = "flex"
+        div_1.style.flexDirection = "row"
 
-        if (a === ''){
-            td.style.backgroundColor = "gray"
-            td.style.width = "20px"
-            td.style.height = "50px"
-        } else {
-            td.style.width = "50px"
-            td.style.height = "50px"
-        }
+        for (a of numbers){
 
-        //td.style.width = "50px"
-
-        for (n of numbers.reverse()){
-
-            let tr = document.createElement("tr")
-
-            if (n === ''){
-                tr.style.backgroundColor = "gray"
-                tr.style.height = "20px"
-                tr.style.width = "50px"
-            } else {
-                tr.style.height = "50px"
-                tr.style.width = "50px"
-            }
+            let div_2 = document.createElement("div")
             
-            //tr.style.width = "50px"
-            td.appendChild(tr)
+            if (a === '' && n === ''){
+                div_2.style.backgroundColor = "gray"
+                div_2.style.height = "20px"
+                div_2.style.width = "20px"
+            } else if (a === ''){
+                div_2.style.backgroundColor = "gray"
+                div_2.style.height = "50px"
+                div_2.style.width = "20px"
+                div_2.textContent = n
+                div_2.style.textJustify = "centr"
+            } else if (n === ''){
+                div_2.style.backgroundColor = "gray"
+                div_2.style.width = "50px"
+                div_2.style.height = "20px"
+                div_2.textContent = alphas[a]
+                
+                div_2.style.text = "centr"
+            } else {
+                div_2.style.height = "50px"
+                div_2.style.width = "50px"
+                if ((a + n ) % 2 == 1){
+                    div_2.style.backgroundColor = "black"
+                }
+
+                if (n === 7){
+                    let bp = document.createElement("img")
+                    bp.setAttribute("src", "img/bP.png")
+                    bp.setAttribute("width", "40px");
+                    bp.setAttribute("height", "40px");
+                    bp.style.backgroundColor = "gray"
+                    div_2.appendChild(bp)
+                }
+                if (n === 2){
+                    let wp = document.createElement("img")
+                    wp.setAttribute("src", "img/wP.png")
+                    wp.setAttribute("width", "40px");
+                    wp.setAttribute("height", "40px");
+                    wp.style.backgroundColor = "gray"
+                    div_2.appendChild(wp)
+                }
+            }
+            div_2.style.textAlign = "center"
+            //div_2.style.verticalAlign = "middle"
+            div_2.style.borderWidth = "1px"
+            div_2.style.borderColor = "black"
+            div_2.style.borderStyle = "solid"
+            //div_2.style.width = "50px"
+            div_1.appendChild(div_2)
         }
-        table.appendChild(td)
+        div.appendChild(div_1)
     }
 
 
-    div.appendChild(table)
     document.body.appendChild(div)
 }
 
